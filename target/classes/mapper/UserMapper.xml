@@ -47,6 +47,9 @@
 		<if test="mobile!=null">
 			mobile = #{mobile}
 		</if>
+		<if test="token!=null">
+			token = #{token}
+		</if>
 		where
 			id = #{id}
 	</update>

@@ -25,7 +25,7 @@ public class UserController {
 	 * @return userinfo
 	 */
 	@RequestMapping(value = "/api/user/{id}",method = RequestMethod.GET)
-	public User findOneUser(@RequestParam(value = "id", required = true) String id){
+	public User findOneUser(@PathVariable("id") String id){
 //		User a = new IdGen();
 		System.out.println("-----------------");
 		System.out.println(UserToken.getToken());
@@ -36,12 +36,16 @@ public class UserController {
 		System.out.println(UserToken.getToken());
 		User udata = new User();
 		udata.setId(IdGen.getTabId());
-		userService.saveUser(user);
+		udata.setToken(UserToken.getToken());
+		userService.saveUser(udata);
     }
 //	@RequestParam
 	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
-    public void delUser(@PathVariable("id") String id) {
+    public String delUser(@PathVariable("id") String id) {
+		
+		
 		userService.deleteUser(id);
+		return "Ok";
     }
 	@RequestMapping(value = "/api/user", method = RequestMethod.GET)
     public List<User> findAllUser() {
@@ -51,6 +55,10 @@ public class UserController {
     }
 	@RequestMapping(value = "/api/user", method = RequestMethod.PUT)
     public void modifyUser(@RequestBody User user) {
+		System.out.println("---------");
+////		System.out.println(user);
+//		User a = new User();
+		System.out.println(user);
         userService.updateUser(user);
     }
 }
