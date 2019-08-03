@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tupu.dao.ConfTemplateDao">
+    <resultMap id="BaseResultMap" type="com.tupu.domain.ConfTemplate">
+        <result column="id" property="id" />
+        <result column="template_name" property="templateName" />
+        <result column="template_version" property="templateVersion" />
+        <result column="c_time" property="createTime" />
+        <result column="e_time" property="editTime" />
+        <result column="deploy_path" property="deployPath" />
+        <result column="c_uid" property="createUid" />
+        <result column="status" property="confStatus" />
+        <result column="description" property="description" />
+    </resultMap>
+
+
+    <select id="getConfTemplateList" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		*
+		from t_template
+	</select>
+    <select id="getById" resultMap="BaseResultMap" parameterType="long">
+		select
+		*
+		from t_template
+		where id = #{id}
+	</select>
+
+    <insert id="saveConfTemplate" parameterType="ConfTemplate" useGeneratedKeys="true" keyProperty="id">
+		insert into
+			t_template(id,template_name,template_version,deploy_path,c_time)
+		values
+			(#{id},#{templateName},#{templateVersion},#{deployPath},#{createTime})
+	</insert>
+
+    <update id="updateConftemplate" parameterType="Conftemplate">
+        update
+        t_template
+        set
+        <if test="templateName!=null">
+            template_name = #{templateName},
+        </if>
+        <if test="templateVersion!=null">
+            template_version = #{templateVersion},
+        </if>
+        <if test="deployPath!=null">
+            deploy_path = #{deployPath}
+        </if>
+        <if test="confStatus!=null">
+            `status` = #{confStatus}
+        </if>
+        <if test="editTime!=null">
+            `e_time` = #{editTime}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.Long">
+		delete from
+			t_template
+		where
+			id = #{id}
+	</delete>
+
+    <select id="findByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		count(*)
+		from t_template
+		where username = #{userName}
+	</select>
+
+    <select id="findByToken" resultType="int">
+		select
+		count(*)
+		from t_template
+		where id = #{id} and token = #{token}
+	</select>
+
+</mapper>

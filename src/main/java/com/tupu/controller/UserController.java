@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,11 +81,15 @@ public class UserController {
             errorMap.put("passWord", "密码必填");
         }
 
+        if (CollectionUtils.isEmpty(errorMap)) {
+            return JsonResult.success(null);
+        }
+
         return JsonResult.fail(errorMap);
     }
 
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
-    public JsonResult delUser(@PathVariable("id") String id) {
+    public JsonResult delUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return JsonResult.success(null);
     }

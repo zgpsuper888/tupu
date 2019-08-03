@@ -12,6 +12,7 @@ public class User {
     private String token;
     private String createTime;
 
+
     public long getId() {
         return id;
     }

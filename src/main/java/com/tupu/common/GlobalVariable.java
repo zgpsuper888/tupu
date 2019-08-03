@@ -21,7 +21,7 @@ public class GlobalVariable {
 
     public String getVariable(String configKey) {
         if (variableMap == null) {
-            List<Map<String, String>> configMap = configDao.getConfig();
+            List<Map<String, String>> configMap = configDao.getGlobalConfig();
             variableMap = new HashMap<>();
             if (!CollectionUtils.isEmpty(configMap)) {
                 configMap.forEach((a)->{

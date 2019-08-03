@@ -32,7 +32,7 @@ public interface UserDao {
 
     Long updateUser(User user);
 
-    Long deleteUser(String id);
+    Long deleteUser(long id);
 
     int findByToken(long id, String token);
 }

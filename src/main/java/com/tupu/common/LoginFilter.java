@@ -24,9 +24,9 @@ import com.tupu.service.UserService;
 import com.tupu.utils.JsonUtils;
 
 /**
- * 登陆过滤器
+ * Token 验证
  */
-@Configuration
+//@Configuration
 public class LoginFilter implements Filter {
     private static final Logger log = LoggerFactory.getLogger(LoginFilter.class);
 

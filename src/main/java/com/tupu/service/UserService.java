@@ -57,7 +57,7 @@ public interface UserService {
      * @param id
      * @return
      */
-    Long deleteUser(String id);
+    Long deleteUser(long id);
 
     /**
      * 验证 token
