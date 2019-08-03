@@ -8,7 +8,8 @@ package com.tupu.common;
  */
 public enum  ErrorCodeEnum {
     SYSTEM_ERROR(100001,"系统错误"),
-    SYSTEM_BUSY(100002,"系统繁忙");
+    LOGIN_ERROR(100002,"登陆失败"),
+    PARAM_ERROR(100003,"参数错误");
 
     private int code;
 

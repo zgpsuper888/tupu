@@ -1,38 +1,55 @@
 package com.tupu.service.impl;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.tupu.common.IdGen;
+import com.tupu.common.UserToken;
 import com.tupu.dao.UserDao;
 import com.tupu.domain.User;
 import com.tupu.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import java.util.List;
+import com.tupu.utils.SecurityUtils;
 
-
-/**
- * 城市业务逻辑实现类
- *
- * Created by bysocket on 07/02/2017.
- */
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserDao userDao;
-    
+
     @Override
-    public List<User> getAllUser(){
+    public User login(User user) {
+        User loginUser = userDao.login(user.getUserName(), user.getPassword());
+
+        if (loginUser != null) {
+            // 登陆成功,重置 token
+            String token = UserToken.getToken();
+            loginUser.setToken(token);
+            userDao.updateUser(loginUser);
+        }
+
+        return loginUser;
+    }
+
+    @Override
+    public List<User> getAllUser() {
         return userDao.getUserList();
     }
+
     @Override
     public User findUserById(String id) {
         return userDao.findById(id);
     }
 
     @Override
-    public Long saveUser(User user) {
-        user.setId(IdGen.getTabId());
-        return userDao.saveUser(user);
+    public void saveUser(User user) {
+        String passwordDigest = SecurityUtils.md5(user.getPassword());
+        user.setPassword(passwordDigest);
+
+        user.setId(IdGen.getUniqueId());
+        userDao.saveUser(user);
     }
 
     @Override
@@ -44,12 +61,11 @@ public class UserServiceImpl implements UserService {
     public Long deleteUser(String id) {
         return userDao.deleteUser(id);
     }
-    
-//    @Override
-//    public Long checkUserName(User user) {
-//    	System.out.println(userDao.findByUserName(user));
-//        return userDao.findByUserName(user);
-//    }
 
+    @Override
+    public boolean checkToken(long id, String token) {
+        int num = userDao.findByToken(id, token);
 
+        return num == 1;
+    }
 }

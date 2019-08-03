@@ -1,72 +1,70 @@
 package com.tupu.domain;
 
-//import java.io.Serializable;
-//import com.tupu.common.*;
-
 /**
  * User 实体类
- *
- * Created by lizhengyan on 01/08/2019.
  */
-
 public class User {
-    private String id;
+    private long id;
     private String userName;
     private String password;
     private String mobile;
     private String email;
     private String token;
-    private String c_time;
-//    private datetime login_time;
+    private String createTime;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
-    public void setId(String id) {
+
+    public void setId(long id) {
         this.id = id;
-//        this.id = IdGen.getTabId();
     }
-    public String getuserName() {
+
+    public String getUserName() {
         return userName;
     }
-    public void setuserName(String userName) {
+
+    public void setUserName(String userName) {
         this.userName = userName;
     }
-    public String getpassWord() {
+
+    public String getPassword() {
         return password;
     }
-    public void setpassWord(String password) {
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    
-    public String getmobile() {
+
+    public String getMobile() {
         return mobile;
     }
+
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
+
     public String getEmail() {
         return email;
     }
-    public void setemail(String email) {
+
+    public void setEmail(String email) {
         this.email = email;
     }
+
     public String getToken() {
-    	return token;
+        return token;
     }
+
     public void setToken(String token) {
         this.token = token;
     }
-    public String getCtime() {
-    	return c_time;
+
+    public String getCreateTime() {
+        return createTime;
     }
-    public void setCtime(String c_time) {
-        this.c_time = c_time;
-    }
-    
- 
-    
-    public User() {
-    	
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

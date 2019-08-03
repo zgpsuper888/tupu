@@ -68,4 +68,17 @@
 		where username = #{userName}
 	</select>
 
+	<select id="findByToken" resultType="int">
+		select
+		count(*)
+		from t_user
+		where id = #{id} and token = #{token}
+	</select>
+
+	<select id="login" resultMap="BaseResultMap">
+		select
+		id,user_name
+		from t_user
+		where username = #{userName} and password = #{password}
+	</select>
 </mapper>

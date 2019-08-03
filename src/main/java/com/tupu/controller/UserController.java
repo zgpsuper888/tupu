@@ -1,9 +1,12 @@
 package com.tupu.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tupu.common.ErrorCodeEnum;
 import com.tupu.domain.User;
 import com.tupu.result.JsonResult;
 import com.tupu.service.UserService;
@@ -22,9 +26,20 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @RequestMapping(value = "/api/user/login", method = RequestMethod.POST)
+    public JsonResult login(@RequestBody User user) {
+        User loginUser = userService.login(user);
+
+        if (loginUser == null) {
+            return JsonResult.fail(ErrorCodeEnum.LOGIN_ERROR);
+        }
+
+        return JsonResult.success(loginUser);
+    }
+
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
     public JsonResult findOneUser(@PathVariable("id") String id) {
-        // TODO 参数校验
+
         User user = userService.findUserById(id);
 
         return JsonResult.success(user);
@@ -32,9 +47,36 @@ public class UserController {
 
     @RequestMapping(value = "/api/user", method = RequestMethod.POST)
     public JsonResult createUser(@RequestBody User user) {
+        // 参数校验
+        JsonResult validateResult = addValidate(user);
+        if (!validateResult.isSuccess()) {
+            return validateResult;
+        }
+
         userService.saveUser(user);
 
         return JsonResult.success(null);
+    }
+
+    private JsonResult addValidate(User user) {
+        Map<String, String> errorMap = new HashMap<>();
+
+        long id = user.getId();
+        if (id < 1) {
+            errorMap.put("id", "id 必填");
+        }
+
+        String userName = user.getUserName();
+        if (StringUtils.isEmpty(userName)) {
+            errorMap.put("userName", "用户名必填");
+        }
+
+        String passWord = user.getPassword();
+        if (StringUtils.isEmpty(passWord)) {
+            errorMap.put("passWord", "密码必填");
+        }
+
+        return JsonResult.fail(errorMap);
     }
 
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)

@@ -3,6 +3,7 @@ package com.tupu.result;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.tupu.common.ErrorCodeEnum;
 import com.tupu.utils.JsonUtils;
+import java.util.Map;
 
 public class JsonResult {
     private static final long serialVersionUID = 1L;
@@ -80,5 +81,14 @@ public class JsonResult {
 
     public static JsonResult fail(ErrorCodeEnum codeEnum) {
         return new JsonResult(codeEnum.getCode(), codeEnum.getMsg());
+    }
+
+
+    public static JsonResult fail(Map<String,String> map) {
+        JsonResult jsonResult = new JsonResult(ErrorCodeEnum.PARAM_ERROR.getCode(), "参数错误");
+
+        jsonResult.setData(map);
+
+        return jsonResult;
     }
 }

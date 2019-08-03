@@ -16,6 +16,15 @@ import java.util.List;
 public interface UserDao {
 
     /**
+     * 根据
+     *
+     * @param userName 用户名
+     * @param password 用户名
+     * @return 用户
+     */
+    User login(String userName,String password);
+
+    /**
      * 根据名称，查询城市信息
      *
      * @param UserName 用户名
@@ -30,7 +39,6 @@ public interface UserDao {
     Long updateUser(User user);
 
     Long deleteUser(String id);
-    
-//    Long findByUserName(String userName);
-    
+
+    int findByToken(long id, String token);
 }
