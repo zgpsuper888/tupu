@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -58,7 +59,33 @@ public class JsonUtils {
                 try {
                     jsonGenerator.close();
                 } catch (IOException e) {
-                    ;
+                }
+            }
+        }
+
+        return json;
+    }
+
+    public static String object2JsonIgnoreNull(Object pojo) {
+        if (pojo == null) {
+            return null;
+        }
+
+        String json = null;
+        JsonGenerator jsonGenerator = null;
+        try {
+            StringWriter sw = new StringWriter();
+            jsonGenerator = MAPPER.getFactory().createGenerator(sw);
+            MAPPER.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            jsonGenerator.writeObject(pojo);
+            json = sw.toString();
+        } catch (IOException e) {
+            log.error("Convert to json failure.", e);
+        } finally {
+            if (jsonGenerator != null) {
+                try {
+                    jsonGenerator.close();
+                } catch (IOException e) {
                 }
             }
         }

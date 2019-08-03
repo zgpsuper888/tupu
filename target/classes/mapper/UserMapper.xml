@@ -4,7 +4,7 @@
 	<resultMap id="BaseResultMap" type="com.tupu.domain.User">
 		<result column="id" property="id" />
 		<result column="username" property="userName" />
-		<result column="password" property="passWord" />
+		<result column="password" property="password" />
 		<result column="mobile" property="mobile" />
 		<result column="token" property="token" />
 		<result column="description" property="description" /> 
@@ -20,7 +20,7 @@
 		*
 		from t_user
 	</select>
-	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="findById" resultMap="BaseResultMap" parameterType="long">
 		select
 		*
 		from t_user 
@@ -31,7 +31,7 @@
 		insert into
 			t_user(id,username,password,mobile)
 		values
-			(#{id},#{userName},#{passWord},#{mobile})
+			(#{id},#{userName},#{password},#{mobile})
 	</insert>
 	
 		<update id="updateUser" parameterType="User">
@@ -41,8 +41,8 @@
 		<if test="userName!=null">
 			username = #{userName},
 		</if>
-		<if test="passWord!=null">
-			password = #{passWord},
+		<if test="password!=null">
+			password = #{password},
 		</if>
 		<if test="mobile!=null">
 			mobile = #{mobile}
@@ -68,4 +68,17 @@
 		where username = #{userName}
 	</select>
 
+	<select id="findByToken" resultType="int">
+		select
+		count(*)
+		from t_user
+		where id = #{id} and token = #{token}
+	</select>
+
+	<select id="login" resultMap="BaseResultMap">
+		select
+		id,username
+		from t_user
+		where username = #{userName} and password = #{password}
+	</select>
 </mapper>

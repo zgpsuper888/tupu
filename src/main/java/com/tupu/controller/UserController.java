@@ -1,5 +1,6 @@
 package com.tupu.controller;
 
+import com.tupu.utils.JsonUtils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,11 +35,11 @@ public class UserController {
             return JsonResult.fail(ErrorCodeEnum.LOGIN_ERROR);
         }
 
-        return JsonResult.success(loginUser);
+        return JsonResult.success(JsonUtils.object2JsonIgnoreNull(loginUser));
     }
 
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
-    public JsonResult findOneUser(@PathVariable("id") String id) {
+    public JsonResult findOneUser(@PathVariable("id") long id) {
 
         User user = userService.findUserById(id);
 

@@ -20,8 +20,9 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public User login(User user) {
-        User loginUser = userDao.login(user.getUserName(), user.getPassword());
+    public User login(User userParam) {
+        String passwordDigest = SecurityUtils.md5(userParam.getPassword());
+        User loginUser = userDao.login(userParam.getUserName(), passwordDigest);
 
         if (loginUser != null) {
             // 登陆成功,重置 token
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(String id) {
+    public User findUserById(long id) {
         return userDao.findById(id);
     }
 

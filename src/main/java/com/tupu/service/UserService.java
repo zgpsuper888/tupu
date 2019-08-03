@@ -8,9 +8,6 @@ import com.tupu.domain.User;
 
 /**
  * 
- * service
- * 
- * 
  */
 @Service
 public interface UserService {
@@ -36,7 +33,7 @@ public interface UserService {
      * @param id
      * @return
      */
-    User findUserById(String id);
+    User findUserById(long id);
 
     /**
      * 新增用户

@@ -7,6 +7,7 @@ package com.tupu.common;
  * @date 2019-08-03 11:07
  */
 public enum  ErrorCodeEnum {
+    TOKEN_ERROR(100000,"Token错误"),
     SYSTEM_ERROR(100001,"系统错误"),
     LOGIN_ERROR(100002,"登陆失败"),
     PARAM_ERROR(100003,"参数错误");

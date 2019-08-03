@@ -32,7 +32,7 @@ public interface UserDao {
     
     List<User> getUserList();
     
-    User findById(@Param("id") String id);
+    User findById(@Param("id") long id);
     
     Long saveUser(User user);
 
