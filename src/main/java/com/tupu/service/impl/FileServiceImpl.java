@@ -62,7 +62,7 @@ public class FileServiceImpl implements FileService {
             subFileResults.add(subFileResult);
         }
 
-        fileResult.setFiles(subFileResults);
+        fileResult.setChildren(subFileResults);
         return fileResult;
     }
 

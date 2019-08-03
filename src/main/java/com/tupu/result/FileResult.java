@@ -13,7 +13,7 @@ public class FileResult {
     /** 文件类型 */
     private String fileType;
 
-    private List<FileResult> files;
+    private List<FileResult> children;
 
     public String getFileName() {
         return fileName;
@@ -39,11 +39,11 @@ public class FileResult {
         this.fileType = fileType;
     }
 
-    public List<FileResult> getFiles() {
-        return files;
+    public List<FileResult> getChildren() {
+        return children;
     }
 
-    public void setFiles(List<FileResult> files) {
-        this.files = files;
+    public void setChildren(List<FileResult> children) {
+        this.children = children;
     }
 }

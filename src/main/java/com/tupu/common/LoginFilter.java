@@ -26,7 +26,7 @@ import com.tupu.utils.JsonUtils;
 /**
  * 登陆过滤器
  */
-@Configuration
+//@Configuration
 public class LoginFilter implements Filter {
     private static final Logger log = LoggerFactory.getLogger(LoginFilter.class);
 
