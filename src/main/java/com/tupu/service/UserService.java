@@ -40,7 +40,7 @@ public interface UserService {
      * @param user
      * @return
      */
-	 Long updateUser(User user);
+	 void updateUser(User user);
 
     /**
      * 根据用户 ID,删除用户

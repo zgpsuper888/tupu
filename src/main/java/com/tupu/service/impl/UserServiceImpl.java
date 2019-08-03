@@ -1,5 +1,6 @@
 package com.tupu.service.impl;
 
+import com.tupu.common.IdGen;
 import com.tupu.dao.UserDao;
 import com.tupu.domain.User;
 import com.tupu.service.UserService;
@@ -30,12 +31,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Long saveUser(User user) {
+        user.setId(IdGen.getTabId());
         return userDao.saveUser(user);
     }
 
     @Override
-    public Long updateUser(User user) {
-        return userDao.updateUser(user);
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 
     @Override
