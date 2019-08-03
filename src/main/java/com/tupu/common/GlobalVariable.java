@@ -1,8 +1,6 @@
 package com.tupu.common;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.Resource;
 
@@ -21,13 +19,19 @@ public class GlobalVariable {
     @Resource
     private ConfigDao configDao;
 
-    public Map<String, String> getVariable() {
+    public String getVariable(String configKey) {
         if (variableMap == null) {
-            Map<String, String> configMap = configDao.getConfig();
-
-            variableMap = CollectionUtils.isEmpty(configMap) ? new HashMap<String, String>(1, 1) : configMap;
+            List<Map<String, String>> configMap = configDao.getConfig();
+            variableMap = new HashMap<>();
+            if (!CollectionUtils.isEmpty(configMap)) {
+                configMap.forEach((a)->{
+                    String config_key = a.get("config_key");
+                    String config_value = a.get("config_value");
+                    variableMap.put(config_key,config_value);
+                });
+            }
         }
 
-        return Collections.unmodifiableMap(variableMap);
+        return variableMap.get(configKey);
     }
 }

@@ -23,12 +23,6 @@ public interface UserDao {
      * @return 用户
      */
     User login(String userName,String password);
-
-    /**
-     * 根据名称，查询城市信息
-     *
-     * @param UserName 用户名
-     */
     
     List<User> getUserList();
     

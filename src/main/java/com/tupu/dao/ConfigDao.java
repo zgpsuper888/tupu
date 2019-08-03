@@ -1,5 +1,6 @@
 package com.tupu.dao;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,5 +10,5 @@ import java.util.Map;
  * @date 2019-08-03 15:03
  */
 public interface ConfigDao {
-    Map<String,String> getConfig();
+    List<Map<String,String>> getConfig();
 }

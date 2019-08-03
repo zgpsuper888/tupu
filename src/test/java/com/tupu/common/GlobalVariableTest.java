@@ -1,5 +1,6 @@
 package com.tupu.common;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,8 +18,7 @@ public class GlobalVariableTest {
 
     @Test
     public void getVariable() {
-        Map<String, String> variable = globalVariable.getVariable();
-
-        System.out.println(variable);
+//        Map<String, String> variable = globalVariable.getVariable();
+        System.out.println(globalVariable.getVariable("uploadPath"));
     }
 }

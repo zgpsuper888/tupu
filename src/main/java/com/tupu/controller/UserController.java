@@ -1,5 +1,6 @@
 package com.tupu.controller;
 
+import com.tupu.common.GlobalVariable;
 import com.tupu.utils.JsonUtils;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,13 +27,14 @@ import com.tupu.service.UserService;
 @ResponseBody
 public class UserController {
 
+    final static Logger log= LoggerFactory.getLogger(UserController.class);
     @Resource
     private UserService userService;
+
 
     @RequestMapping(value = "/api/user/login", method = RequestMethod.POST)
     public JsonResult login(@RequestBody User user) {
         User loginUser = userService.login(user);
-
         if (loginUser == null) {
             return JsonResult.fail(ErrorCodeEnum.LOGIN_ERROR);
         }
@@ -42,7 +46,6 @@ public class UserController {
     public JsonResult findOneUser(@PathVariable("id") long id) {
 
         User user = userService.findUserById(id);
-
         return JsonResult.success(user);
     }
 
