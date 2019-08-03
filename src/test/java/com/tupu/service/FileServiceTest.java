@@ -1,5 +1,7 @@
 package com.tupu.service;
 
+import com.tupu.result.FileResult;
+import com.tupu.utils.JsonUtils;
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -7,20 +9,17 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.tupu.domain.User;
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class UserServiceTest {
+public class FileServiceTest {
+
     @Resource
-    private UserService userService;
+    private FileService fileService;
 
     @Test
-    public void saveUser() {
+    public void traverseDir() {
+        FileResult fileResult = fileService.traverseDir("/temp/","java");
 
-        User user = new User();
-        user.setUserName("admin");
-        user.setPassword("admin");
-        userService.saveUser(user);
+        System.out.println(JsonUtils.object2Json(fileResult));
     }
 }

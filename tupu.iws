@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a88df16-5153-4a51-bfcf-0e11d22446da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/ConfTemplateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfTemplateDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/ConfTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/ConfTemplateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/ConfTemplateServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ConfTemplatemapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/result/FileResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/FileServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tupu/service/FileServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/common/GlobalVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/common/GlobalVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/common/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/common/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfigDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfigDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ConfigMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ConfigMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tupu.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tupu.iws" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tupu/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tupu/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tupu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +148,7 @@
       <updated>1564720611707</updated>
       <workItem from="1564720613188" duration="1026000" />
       <workItem from="1564803213863" duration="4776000" />
-      <workItem from="1564817504773" duration="10718000" />
+      <workItem from="1564817504773" duration="10991000" />
     </task>
     <servers />
   </component>
