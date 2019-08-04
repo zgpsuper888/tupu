@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tupu.dao.RelationDao">
+    <resultMap id="BaseResultMap" type="com.tupu.domain.Relation">
+        <result column="id" property="id" />
+        <result column="template_id" property="templateId" />
+        <result column="en_relation_name" property="enRelationName" />
+        <result column="cn_relation_name" property="cnRelationName" />
+        <result column="parent_id" property="parentId" />
+        <result column="s_entity_id" property="sEntityId" />
+        <result column="t_relation_id" property="tEntityId" />
+        <result column="s_entity_name" property="sEntityName" />
+        <result column="s_entity_name" property="sEntityName" />
+        <result column="c_time" property="createTime" />
+        <result column="e_time" property="editTime" />
+        <result column="c_uid" property="createUid" />
+        <result column="e_uid" property="editUid" />
+        <result column="description" property="description" />
+    </resultMap>
+
+
+    <select id="getRelationList" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		*
+		from t_relation
+	</select>
+    <select id="getRelationByTemplateId" resultMap="BaseResultMap" parameterType="long">
+		select *
+		from t_relation
+		where template_id=#{templateId}
+	</select>
+
+    <select id="getRelationById" resultMap="BaseResultMap" parameterType="long">
+		select
+		*
+		from t_relation
+		where id = #{id}
+	</select>
+
+    <insert id="saveRelation" parameterType="Relation" useGeneratedKeys="true" keyProperty="id">
+		insert into t_relation(
+		    id,template_id,en_relation_name,cn_relation_name,parent_id,s_entity_id,t_entity_id,c_time,description)
+		values
+			(#{id},#{templateId},#{enRelationName},#{cnRelationName},#{parentId},#{sEntityId},#{tEntityId}, #{createTime},#{description})
+	</insert>
+
+    <update id="updateRelation" parameterType="Relation">
+        update
+        t_relation
+        set
+        <if test="enRelationName!=null">
+            en_relation_name = #{enRelationName},
+        </if>
+        <if test="cnRelationName!=null">
+            cn_relation_name = #{cnRelationName},
+        </if>
+        <if test="tags!=null">
+            tags = #{tags},
+        </if>
+        <if test="parentId!=null">
+            `parent_id` = #{parentId},
+        </if>
+        <if test="level!=null">
+            `level` = #{level},
+        </if>
+        <if test="description!=null">
+            `description` = #{description},
+        </if>
+        <if test="editTime!=null">
+            `e_time` = #{editTime}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteRelation" parameterType="java.lang.Long">
+		delete from
+			t_relation
+		where
+			id = #{id}
+	</delete>
+
+    <select id="checkRelationName" parameterType="Relation" resultType="INTEGER" >
+        select count(*) as count from
+			t_relation
+		where
+			template_id = #{templateId} and en_relation_name = #{enRelationName}
+	</select>
+
+</mapper>

@@ -2,25 +2,22 @@ package com.tupu.domain;
 
 import java.util.Date;
 
-/**
- * entiy 操作
- */
-public class Entity {
+public class Relation {
 
     // 实体id
     private long id;
     //模版ID
     private long templateId;
-    //实体英文名
-    private String enEntityName;
-    //实体中文名
-    private String cnEntityName;
-    //实体标签
-    private String tags;
+    private String enRelationName;
+    private String cnRelationName;
     //实体父ID
     private long parentId;
-    // 实体级别 1 2 3 级别
-    private long level;
+    private String sEntityId;
+    private String tEntityId;
+    //实体英文名
+    private String sEntityName;
+    //实体中文名
+    private String tEntityName;
     private long createUid;
     private Date createTime;
     private long editUid;
@@ -43,28 +40,20 @@ public class Entity {
         this.templateId = templateId;
     }
 
-    public String getEnEntityName() {
-        return enEntityName;
+    public String getEnRelationName() {
+        return enRelationName;
     }
 
-    public void setEnEntityName(String enEntityName) {
-        this.enEntityName = enEntityName;
+    public void setEnRelationName(String enRelationName) {
+        this.enRelationName = enRelationName;
     }
 
-    public String getCnEntityName() {
-        return cnEntityName;
+    public String getCnRelationName() {
+        return cnRelationName;
     }
 
-    public void setCnEntityName(String cnEntityName) {
-        this.cnEntityName = cnEntityName;
-    }
-
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
+    public void setCnRelationName(String cnRelationName) {
+        this.cnRelationName = cnRelationName;
     }
 
     public long getParentId() {
@@ -75,21 +64,36 @@ public class Entity {
         this.parentId = parentId;
     }
 
-    public long getLevel() {
-        return level;
+    public String getsEntityId() {
+        return sEntityId;
     }
 
-    public void setLevel(long level) {
-        this.level = level;
+    public void setsEntityId(String sEntityId) {
+        this.sEntityId = sEntityId;
     }
 
-
-    public Date getCreateTime() {
-        return createTime;
+    public String gettEntityId() {
+        return tEntityId;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void settEntityId(String tEntityId) {
+        this.tEntityId = tEntityId;
+    }
+
+    public String getsEntityName() {
+        return sEntityName;
+    }
+
+    public void setsEntityName(String sEntityName) {
+        this.sEntityName = sEntityName;
+    }
+
+    public String gettEntityName() {
+        return tEntityName;
+    }
+
+    public void settEntityName(String tEntityName) {
+        this.tEntityName = tEntityName;
     }
 
     public long getCreateUid() {
@@ -98,6 +102,14 @@ public class Entity {
 
     public void setCreateUid(long createUid) {
         this.createUid = createUid;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public long getEditUid() {

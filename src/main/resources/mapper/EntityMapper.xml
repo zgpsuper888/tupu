@@ -78,11 +78,11 @@
 			id = #{id}
 	</delete>
 
-    <delete id="checkEnEntityName" parameterType="Entity" >
-		select count(*) from
+    <select id="checkEnEntityName" parameterType="Entity" resultType="INTEGER" >
+        select count(*) as count from
 			t_entity
 		where
 			template_id = #{templateId} and en_entitie_name = #{enEntityName}
-	</delete>
+	</select>
 
 </mapper>

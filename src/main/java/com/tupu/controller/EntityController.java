@@ -66,10 +66,10 @@ public class EntityController {
             return JsonResult.fail(DATA_ERROR);
         }
 
-        long insertResult=entityService.saveEntity(entity);
+        long insertResult = entityService.saveEntity(entity);
         if (insertResult == 1) {
             return JsonResult.success(null);
-        }else{
+        } else {
             return JsonResult.success(INSERT_FAIL);
         }
 
@@ -90,7 +90,7 @@ public class EntityController {
         }
         String cnEntityName = entity.getCnEntityName();
         if (StringUtils.isEmpty(cnEntityName)) {
-            errorMap.put("enEntityName", "实体中文名必填");
+            errorMap.put("cnEntityName", "实体中文名必填");
         }
         if (CollectionUtils.isEmpty(errorMap)) {
             return JsonResult.success(null);
@@ -100,8 +100,12 @@ public class EntityController {
 
     @RequestMapping(value = "/api/conf/entity/{id}", method = RequestMethod.DELETE)
     public JsonResult delEntity(@PathVariable("id") long id) {
-        entityService.deleteEntity(id);
-        return JsonResult.success(null);
+        long deleteResult = entityService.deleteEntity(id);
+        if (deleteResult > 0) {
+            return JsonResult.success(null);
+        } else {
+            return JsonResult.fail(DELETE_FAIL);
+        }
     }
 
     /**
@@ -115,21 +119,17 @@ public class EntityController {
         if (!validateResult.isSuccess()) {
             return validateResult;
         }
-        long reslut = entityService.editEntity(entity);
-        if (reslut == 1) {
-            return JsonResult.success(null);
-        } else {
-            return JsonResult.fail(UPDATA_FAIL);
-        }
+        entityService.editEntity(entity);
+        return JsonResult.success(null);
+
 
     }
 
     private JsonResult idValidate(Entity entity) {
         Map<String, String> errorMap = new HashMap<>();
-
-        long templateId = entity.getTemplateId();
-        if (StringUtils.isEmpty(templateId)) {
-            errorMap.put("templateId", "模版Id必填");
+        long entityId = entity.getId();
+        if (StringUtils.isEmpty(entityId)) {
+            errorMap.put("entityId", "Id必填");
         }
         if (CollectionUtils.isEmpty(errorMap)) {
             return JsonResult.success(null);

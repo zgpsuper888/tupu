@@ -71,8 +71,6 @@ public class EntityServiceImpl implements EntityService {
     @Override
     public boolean checkEntity(Entity entity) {
         int entityNum = entityDao.checkEnEntityName(entity);
-        System.out.println(entityNum);
-        System.out.println("-----------------");
         if (entityNum > 0) {
             return true;
         } else {
