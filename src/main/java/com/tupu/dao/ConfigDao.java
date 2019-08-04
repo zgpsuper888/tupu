@@ -10,5 +10,5 @@ import java.util.Map;
  * @date 2019-08-03 15:03
  */
 public interface ConfigDao {
-    List<Map<String,String>> getGlobalConfig();
+    List<Map<String,String>> getConfig();
 }

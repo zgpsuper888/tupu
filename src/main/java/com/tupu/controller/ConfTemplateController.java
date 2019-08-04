@@ -26,8 +26,8 @@ public class ConfTemplateController {
     private ConfTemplateService confTemplateService;
 
     /**
-     * 配置wenjia 列表
-     * @return
+     * 配置文件列表
+     * @return list
      */
     @RequestMapping(value = "/api/conf", method = RequestMethod.GET)
     public JsonResult getConfTemplateList() {
@@ -36,9 +36,9 @@ public class ConfTemplateController {
         return JsonResult.success(confTemplates);
     }
     /**
-     * 获取配置文件模版列表
+     * 根据ID获取配置文件模版信息
      * @param  id  配置文件ID
-     * @return List
+     * @return object
      */
     @RequestMapping(value = "/api/conf/{id}", method = RequestMethod.GET)
     public JsonResult getOneConfTemplate(@PathVariable("id") long id) {
@@ -58,9 +58,9 @@ public class ConfTemplateController {
         if (!validateResult.isSuccess()) {
             return validateResult;
         }
-        confTemplateService.saveConfTemplate(confTemplate);
+        ConfTemplate confInfo=confTemplateService.saveConfTemplate(confTemplate);
 
-        return JsonResult.success(null);
+        return JsonResult.success(confInfo);
     }
 
     private JsonResult addValidate(ConfTemplate confTemplate) {
@@ -78,8 +78,35 @@ public class ConfTemplateController {
         if (CollectionUtils.isEmpty(errorMap)) {
             return JsonResult.success(null);
         }
-        System.out.println(confTemplate.getTemplateVersion());
-        System.out.println(confTemplate.getTemplateName());
+        return JsonResult.fail(errorMap);
+    }
+
+
+    /**
+     *
+     * @param confTemplate
+     * @return
+     */
+    @RequestMapping(value = "/api/conf", method = RequestMethod.PUT)
+    public JsonResult modifyConfTemplate(@RequestBody ConfTemplate confTemplate) {
+        JsonResult validateResult = idValidate(confTemplate);
+        if (!validateResult.isSuccess()) {
+            return validateResult;
+        }
+        confTemplateService.updateConfTemplate(confTemplate);
+        return JsonResult.success(null);
+    }
+
+    private JsonResult idValidate(ConfTemplate confTemplate) {
+        Map<String, String> errorMap = new HashMap<>();
+
+        long templateId = confTemplate.getId();
+        if (StringUtils.isEmpty(templateId)) {
+            errorMap.put("templateId", "模版Id必填");
+        }
+        if (CollectionUtils.isEmpty(errorMap)) {
+            return JsonResult.success(null);
+        }
         return JsonResult.fail(errorMap);
     }
 }

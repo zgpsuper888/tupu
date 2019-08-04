@@ -33,7 +33,7 @@
 			(#{id},#{templateName},#{templateVersion},#{deployPath},#{createTime})
 	</insert>
 
-    <update id="updateConftemplate" parameterType="Conftemplate">
+    <update id="updateConfTemplate" parameterType="ConfTemplate">
         update
         t_template
         set
@@ -44,10 +44,10 @@
             template_version = #{templateVersion},
         </if>
         <if test="deployPath!=null">
-            deploy_path = #{deployPath}
+            deploy_path = #{deployPath},
         </if>
         <if test="confStatus!=null">
-            `status` = #{confStatus}
+            `status` = #{confStatus},
         </if>
         <if test="editTime!=null">
             `e_time` = #{editTime}
@@ -56,25 +56,11 @@
         id = #{id}
     </update>
 
-    <delete id="deleteUser" parameterType="java.lang.Long">
+    <delete id="deleteConfTemplate" parameterType="java.lang.Long">
 		delete from
 			t_template
 		where
 			id = #{id}
 	</delete>
-
-    <select id="findByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
-		select
-		count(*)
-		from t_template
-		where username = #{userName}
-	</select>
-
-    <select id="findByToken" resultType="int">
-		select
-		count(*)
-		from t_template
-		where id = #{id} and token = #{token}
-	</select>
 
 </mapper>

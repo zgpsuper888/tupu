@@ -34,7 +34,7 @@ public interface ConfTemplateService {
      * @param confTemplate
      * @return
      */
-    Long saveConfTemplate(ConfTemplate confTemplate);
+    ConfTemplate saveConfTemplate(ConfTemplate confTemplate);
 
     /**
      * 更新模版

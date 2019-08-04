@@ -1,13 +1,13 @@
 create table t_json_template
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    template_id          varchar(32) not null,
    template_name        varchar(32),
    entitie_id           varchar(32),
    template_version     varchar(32),
    template_content     varchar(1024),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
@@ -21,17 +21,18 @@ drop table if exists t_config;
 /*==============================================================*/
 create table t_config
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    `key`                  varchar(64),
    value                varchar(128),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
-   primary key (id),
-   unique(`key`)
+   primary key (id)
 );
+insert into t_config(id,config_key,config_value,c_time) values(4,'confPath','/Users/lzh/configpath',now());
+
 drop table if exists t_dict_relation;
 
 /*==============================================================*/
@@ -39,19 +40,18 @@ drop table if exists t_dict_relation;
 /*==============================================================*/
 create table t_dict_relation
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    en_relation_name     varchar(32),
    cn_relation_name     varchar(32),
    parent_id            varchar(32),
    tags                 varchar(32),
    level                int(11),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
-   primary key (id),
-   unique(en_relation_name)
+   primary key (id)
 );
 
 drop table if exists t_relation;
@@ -61,7 +61,7 @@ drop table if exists t_relation;
 /*==============================================================*/
 create table t_relation
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    template_id          varchar(32),
    en_relation_name     varchar(32),
    cn_relation_name     varchar(32),
@@ -71,7 +71,7 @@ create table t_relation
    s_entity_name        varchar(32),
    t_entity_name        varchar(32),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
@@ -87,7 +87,7 @@ drop table if exists t_entity;
 /*==============================================================*/
 create table t_entity
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    template_id          varchar(32),
    en_entitie_name      varchar(32),
    cn_entitie_name      varchar(32),
@@ -95,12 +95,11 @@ create table t_entity
    parent_id            varchar(32),
    level                int(11),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
-   primary key (id),
-   unique(en_entitie_name)
+   primary key (id)
 );
 
 alter table t_entity add constraint FK_Reference_1 foreign key (template_id)
@@ -112,14 +111,14 @@ drop table if exists t_attribute;
 /*==============================================================*/
 create table t_attribute
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    template_id          varchar(32),
    entity_id            varchar(32),
    en_attribute_name    varchar(32),
    cn_attribute_name    varchar(32),
    entity_name          varchar(32),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
@@ -138,7 +137,7 @@ drop table if exists t_transform;
 /*==============================================================*/
 create table t_transform
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    template_id          varchar(32) not null,
    source_name          varchar(32),
    ann_name             varchar(32),
@@ -147,12 +146,11 @@ create table t_transform
    mark_uid             varchar(32),
    type                 varchar(32),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
-   primary key (id),
-
+   primary key (id)
 );
 
 alter table t_transform add constraint FK_Reference_5 foreign key (template_id)
@@ -164,7 +162,7 @@ drop table if exists t_dict_attribute;
 /*==============================================================*/
 create table t_dict_attribute
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    en_attribute_name    varchar(32),
    cn_attribute_name    varchar(32),
    attribute_type       tinyint,
@@ -172,12 +170,11 @@ create table t_dict_attribute
    cn_attribute_value   varchar(32),
    tags                 varchar(32),
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
-   primary key (id),
-   unique(en_attribute_name)
+   primary key (id)
 );
 drop table if exists t_template;
 
@@ -186,21 +183,19 @@ drop table if exists t_template;
 /*==============================================================*/
 create table t_template
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    template_name        varchar(64),
    template_version     varchar(32),
    file_path            varchar(128),
    deploy_path          varchar(128),
    status               tinyint,
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
-   primary key (id),
-   unique(template_name,template_version);
+   primary key (id)
 );
-
 drop table if exists t_user;
 
 /*==============================================================*/
@@ -208,18 +203,17 @@ drop table if exists t_user;
 /*==============================================================*/
 create table t_user
 (
-   id                   varchar(32) not null,
+   id                   bigint not null,
    username             varchar(32),
    password             varchar(32),
    mobile               varchar(32),
    email                varchar(64),
-   Token                varchar(32),
+   token                varchar(32),
    login_time           datetime,
    c_uid                varchar(32),
-   createTime               datetime,
+   c_time               datetime,
    e_uid                varchar(32),
    e_time               datetime,
    description               varchar(64),
    primary key (id)
 );
-alter table t_user add unique uniq_username (username);

@@ -6,7 +6,7 @@ public class IdGen {
 
     public static long getUniqueId() {
         // 拼接字符串，并添加2(自定义)位随机数
-        return Long.valueOf(System.currentTimeMillis() + randomNumber(5));
+        return Long.valueOf(System.currentTimeMillis() + randomNumber(4));
     }
 
     private static String randomNumber(int num) {

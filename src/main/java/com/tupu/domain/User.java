@@ -1,7 +1,7 @@
 package com.tupu.domain;
 
 /**
- * User 实体类
+ * User
  */
 public class User {
     private long id;

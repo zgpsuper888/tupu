@@ -32,7 +32,11 @@ public class UserController {
     @Resource
     private UserService userService;
 
-
+    /**
+     * 用户登陆
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/api/user/login", method = RequestMethod.POST)
     public JsonResult login(@RequestBody User user) {
         User loginUser = userService.login(user);
@@ -43,6 +47,11 @@ public class UserController {
         return JsonResult.success(JsonUtils.object2JsonIgnoreNull(loginUser));
     }
 
+    /**
+     * 根据用户查找用户信息
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
     public JsonResult findOneUser(@PathVariable("id") long id) {
 
@@ -50,6 +59,11 @@ public class UserController {
         return JsonResult.success(user);
     }
 
+    /**
+     * 新增用户
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/api/user", method = RequestMethod.POST)
     public JsonResult createUser(@RequestBody User user) {
         // 参数校验
@@ -88,12 +102,21 @@ public class UserController {
         return JsonResult.fail(errorMap);
     }
 
+    /**
+     * 根据ID删除用户
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
     public JsonResult delUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return JsonResult.success(null);
     }
 
+    /**
+     * 获取用户列表
+     * @return list
+     */
     @RequestMapping(value = "/api/user", method = RequestMethod.GET)
     public JsonResult findAllUser() {
         List<User> users = userService.getAllUser();
@@ -101,6 +124,11 @@ public class UserController {
         return JsonResult.success(users);
     }
 
+    /**
+     * 更新用户
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/api/user/", method = RequestMethod.PUT)
     public JsonResult modifyUser(@RequestBody User user) {
         userService.updateUser(user);
