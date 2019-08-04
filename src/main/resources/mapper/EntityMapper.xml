@@ -42,7 +42,7 @@
 			(#{id},#{templateId},#{enEntityName},#{cnEntityName},#{tags},#{parentId},#{level},#{createTime},#{description})
 	</insert>
 
-    <update id="updateConfTemplate" parameterType="ConfTemplate">
+    <update id="updateEntity" parameterType="Entity">
         update
         t_entity
         set

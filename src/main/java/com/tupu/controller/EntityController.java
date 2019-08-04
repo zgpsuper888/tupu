@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.tupu.common.ErrorCodeEnum.DATA_ERROR;
+import static com.tupu.common.ErrorCodeEnum.*;
 
 @RestController
 @ResponseBody
@@ -62,13 +62,18 @@ public class EntityController {
             return validateResult;
         }
 
-        System.out.println(entityService.checkEntity(entity));
-        System.out.println("-----------");
-        if (entityService.checkEntity(entity)){
+        if (entityService.checkEntity(entity)) {
             return JsonResult.fail(DATA_ERROR);
         }
-        entityService.saveEntity(entity);
-        return JsonResult.success(null);
+
+        long insertResult=entityService.saveEntity(entity);
+        if (insertResult == 1) {
+            return JsonResult.success(null);
+        }else{
+            return JsonResult.success(INSERT_FAIL);
+        }
+
+
     }
 
     private JsonResult addValidate(Entity entity) {
@@ -101,6 +106,7 @@ public class EntityController {
 
     /**
      * 更新实体
+     *
      * @param entity
      */
     @RequestMapping(value = "/api/conf/entity", method = RequestMethod.PUT)
@@ -109,8 +115,13 @@ public class EntityController {
         if (!validateResult.isSuccess()) {
             return validateResult;
         }
-        entityService.updateEntity(entity);
-        return JsonResult.success(null);
+        long reslut = entityService.editEntity(entity);
+        if (reslut == 1) {
+            return JsonResult.success(null);
+        } else {
+            return JsonResult.fail(UPDATA_FAIL);
+        }
+
     }
 
     private JsonResult idValidate(Entity entity) {

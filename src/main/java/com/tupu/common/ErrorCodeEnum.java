@@ -11,7 +11,11 @@ public enum  ErrorCodeEnum {
     SYSTEM_ERROR(100001,"系统错误"),
     LOGIN_ERROR(100002,"登陆失败"),
     PARAM_ERROR(100003,"参数错误"),
-    DATA_ERROR(100004,"数据重复");
+    DATA_ERROR(100004,"数据重复"),
+    INSERT_FAIL(4001,"插入失败"),
+    DELETE_FAIL(4002,"删除失败"),
+    UPDATA_FAIL(4003,"更新失败"),
+    SELECT_FAIL(4001,"插入失败");
 
     private int code;
 

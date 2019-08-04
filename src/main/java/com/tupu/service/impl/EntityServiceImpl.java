@@ -15,53 +15,67 @@ import java.util.List;
 @Service
 public class EntityServiceImpl implements EntityService {
 
-    private  final Logger log= LoggerFactory.getLogger(EntityServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(EntityServiceImpl.class);
 
     @Resource
     private EntityDao entityDao;
 
     // 列表
     @Override
-    public List<Entity> getEntityList(){
-        return  entityDao.getEntityList();
+    public List<Entity> getEntityList() {
+        return entityDao.getEntityList();
     }
 
     //新增
     @Override
-    public Long saveEntity(Entity entity){
+    public Long saveEntity(Entity entity) {
         entity.setId(IdGen.getUniqueId());
         entity.setCreateTime(new Date());
         return entityDao.saveEntity(entity);
     }
 
     @Override
-    public Long deleteEntity(long id){
+    public Long deleteEntity(long id) {
         return entityDao.deleteEntity(id);
     }
+
+    /**
+     * 实体编辑
+     *
+     * @param entity
+     * @return long
+     */
     @Override
-    public  Long editEntity(Entity entity){
+    public Long editEntity(Entity entity) {
         entity.setEditTime(new Date());
-
-
-        return  entityDao.updateEntity(entity);
+        return entityDao.updateEntity(entity);
     }
+
     @Override
     public Entity getEntityById(long id) {
         return entityDao.getEntityById(id);
     }
 
+
     @Override
-    public List<Entity> getEntityByTemplateId(long templateId){
-        return  entityDao.getEntityByTemplateId(templateId);
+    public List<Entity> getEntityByTemplateId(long templateId) {
+        return entityDao.getEntityByTemplateId(templateId);
     }
+
+    /**
+     * 通过模版id 主体英文名检查是否重复
+     *
+     * @param entity
+     * @return boolean
+     */
     @Override
-    public boolean checkEntity(Entity entity){
+    public boolean checkEntity(Entity entity) {
         int entityNum = entityDao.checkEnEntityName(entity);
         System.out.println(entityNum);
         System.out.println("-----------------");
-        if (entityNum > 0){
+        if (entityNum > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
