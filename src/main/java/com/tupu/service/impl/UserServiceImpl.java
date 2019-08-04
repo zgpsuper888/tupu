@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
             // 登陆成功,重置 token
             String token = UserToken.getToken();
             loginUser.setToken(token);
-            userDao.updateUser(loginUser);
+            userDao.updateUserToken(loginUser);
         }
 
         return loginUser;

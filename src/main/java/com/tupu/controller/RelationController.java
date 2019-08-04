@@ -115,8 +115,6 @@ public class RelationController {
         }
         relationService.editRelation(relation);
         return JsonResult.success(null);
-
-
     }
 
     private JsonResult idValidate(Relation relation) {

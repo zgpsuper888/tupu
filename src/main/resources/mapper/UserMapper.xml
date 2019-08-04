@@ -64,12 +64,13 @@
         <if test="email!=null">
             email = #{email},
         </if>
-        <if test="token!=null">
-            token = #{token},
-        </if>
+
 		<if test="description!=null">
-			description = #{description}
+			description = #{description},
 		</if>
+        <if test="editTime!=null">
+            e_time = #{editTime}
+        </if>
         where
         id = #{id}
     </update>
@@ -103,6 +104,12 @@
 	</select>
 
 
+    <update id="updateUserToken" parameterType="User">
+        update
+        t_user
+        set token = #{token} where id = #{id}
+
+    </update>
     <select id="checkUserName" parameterType="java.lang.String" resultType="INTEGER">
 		select
 		count(*)

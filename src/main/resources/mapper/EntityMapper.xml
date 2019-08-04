@@ -61,14 +61,12 @@
         <if test="level!=null">
             `level` = #{level},
         </if>
-        <if test="description!=null">
-            `description` = #{description},
-        </if>
         <if test="editTime!=null">
-            `e_time` = #{editTime}
+            `e_time` = #{editTime},
         </if>
-        where
-        id = #{id}
+
+        `description` = #{description}
+        where id = #{id}
     </update>
 
     <delete id="deleteEntity" parameterType="java.lang.Long">

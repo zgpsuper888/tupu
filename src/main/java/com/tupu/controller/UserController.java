@@ -63,7 +63,6 @@ public class UserController {
         System.out.println(id);
         User user = userService.findUserById(id);
         System.out.println(user.getId());
-
         return JsonResult.success(user);
     }
 

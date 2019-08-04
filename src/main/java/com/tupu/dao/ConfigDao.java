@@ -1,5 +1,7 @@
 package com.tupu.dao;
 
+import com.tupu.domain.Config;
+
 import java.util.List;
 import java.util.Map;
 
@@ -11,4 +13,8 @@ import java.util.Map;
  */
 public interface ConfigDao {
     List<Map<String,String>> getConfig();
+
+    List<Config> getConfigList();
+
+    Long updateConfig(Config config);
 }

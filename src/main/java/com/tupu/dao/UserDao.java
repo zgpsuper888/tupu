@@ -31,6 +31,7 @@ public interface UserDao {
     Long saveUser(User user);
 
     Long updateUser(User user);
+    Long updateUserToken(User user);
 
     Long deleteUser(long id);
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tupu.dao.AttributeDao">
+    <resultMap id="BaseResultMap" type="com.tupu.domain.Attribute">
+        <result column="id" property="id" />
+        <result column="template_id" property="templateId" />
+        <result column="entity_id" property="entityId" />
+        <result column="entity_name" property="entityName" />
+        <result column="en_attribute_name" property="enAttributeName" />
+        <result column="cn_attribute_name" property="cnAttributeName" />
+        <result column="c_time" property="createTime" />
+        <result column="e_time" property="editTime" />
+        <result column="c_uid" property="createUid" />
+        <result column="e_uid" property="editUid" />
+        <result column="description" property="description" />
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        id,template_id,entity_id,entity_name,en_attribute_name,cn_attribute_name,c_time
+    </sql>
+
+    <select id="getAttributeByTemplateId" resultMap="BaseResultMap" parameterType="long">
+		select
+		<include refid="Base_Column_List"/>
+		from t_attribute
+		where template_id=#{templateId}
+	</select>
+
+    <select id="getAttributeById" resultMap="BaseResultMap" parameterType="long">
+		select
+		*
+		from t_attribute
+		where id = #{id}
+	</select>
+
+    <insert id="saveAttribute" parameterType="Attribute" useGeneratedKeys="true" keyProperty="id">
+		insert into t_attribute(
+		    id,template_id,entity_id,entity_name,en_attribute_name,cn_attribute_name,c_time,description)
+		values
+			(#{id},#{templateId},#{entityId},#{entityName},#{enAttributeName},#{cnAttributeName},#{createTime},#{description})
+	</insert>
+
+    <update id="updateAttribute" parameterType="Attribute">
+        update
+        t_attribute
+        set
+        <if test="enAttributeName!=null">
+            en_attribute_name = #{enAttributeName},
+        </if>
+        <if test="cnAttributeName!=null">
+            cn_attribute_name = #{cnAttributeName},
+        </if>
+        <if test="entityId!=null">
+            `entity_id` = #{entityId},
+        </if>
+        <if test="entityName!=null">
+            `entity_name` = #{entityName},
+        </if>
+        <if test="description!=null">
+            `description` = #{description},
+        </if>
+        <if test="editTime!=null">
+            `e_time` = #{editTime}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteAttributeById" parameterType="java.lang.Long">
+		delete from
+			t_attribute
+		where
+			id = #{id}
+	</delete>
+    <delete id="deleteAttributeByTemplateId" parameterType="java.lang.Long">
+		delete from
+			t_attribute
+		where
+			template_id = #{templateId}
+	</delete>
+
+    <select id="checkRepeatAttribute" parameterType="Attribute" resultType="INTEGER" >
+        select count(*) as count from
+			t_attribute
+		where
+			template_id = #{templateId} and en_attribute_name = #{enAttributeName}
+	</select>
+
+</mapper>
