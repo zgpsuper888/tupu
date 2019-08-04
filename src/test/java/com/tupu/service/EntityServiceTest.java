@@ -17,12 +17,12 @@ public class EntityServiceTest {
     @Test
     public void saveEntity() {
 
-        Entity entity = new Entity();
-        entity.setTemplateId(156482);
-        entity.setEnEntityName("ThreatActor");
-        entity.setParentId(1);
-
-        entityService.saveEntity(entity);
+//        Entity entity = new Entity();
+//        entity.setTemplateId(156482);
+//        entity.setEnEntityName("ThreatActor");
+//        entity.setParentId(1);
+//
+//        entityService.saveEntity(entity);
     }
 }
 

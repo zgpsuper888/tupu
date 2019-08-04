@@ -67,4 +67,7 @@ public interface UserService {
      * @return true 通过;false 失败
      */
     boolean checkToken(long id, String token);
+
+
+    boolean checkUserName(String userName);
 }

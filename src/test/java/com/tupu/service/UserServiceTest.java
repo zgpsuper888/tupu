@@ -21,6 +21,6 @@ public class UserServiceTest {
         User user = new User();
         user.setUserName("admin");
         user.setPassword("admin");
-        userService.saveUser(user);
+//        userService.saveUser(user);
     }
 }

@@ -1,5 +1,7 @@
 package com.tupu.domain;
 
+import java.util.Date;
+
 /**
  * User
  */
@@ -10,7 +12,12 @@ public class User {
     private String mobile;
     private String email;
     private String token;
-    private String createTime;
+    private Long createUid;
+    private Long editUid;
+
+    private Date createTime;
+    private Date editTime;
+    private String description;
 
 
     public long getId() {
@@ -61,11 +68,43 @@ public class User {
         this.token = token;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
+    }
+
+    public Long getCreateUid() {
+        return createUid;
+    }
+
+    public void setCreateUid(Long createUid) {
+        this.createUid = createUid;
+    }
+
+    public Long getEditUid() {
+        return editUid;
+    }
+
+    public void setEditUid(Long editUid) {
+        this.editUid = editUid;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

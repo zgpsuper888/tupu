@@ -2,6 +2,7 @@ package com.tupu.controller;
 
 import com.tupu.common.GlobalVariable;
 import com.tupu.utils.JsonUtils;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,16 +25,19 @@ import com.tupu.domain.User;
 import com.tupu.result.JsonResult;
 import com.tupu.service.UserService;
 
+import static com.tupu.common.ErrorCodeEnum.DATA_ERROR;
+
 @RestController
 @ResponseBody
 public class UserController {
 
-    final static Logger log= LoggerFactory.getLogger(UserController.class);
+    final static Logger log = LoggerFactory.getLogger(UserController.class);
     @Resource
     private UserService userService;
 
     /**
      * 用户登陆
+     *
      * @param user
      * @return
      */
@@ -49,6 +53,7 @@ public class UserController {
 
     /**
      * 根据用户查找用户信息
+     *
      * @param id
      * @return
      */
@@ -61,6 +66,7 @@ public class UserController {
 
     /**
      * 新增用户
+     *
      * @param user
      * @return
      */
@@ -71,19 +77,17 @@ public class UserController {
         if (!validateResult.isSuccess()) {
             return validateResult;
         }
-
-        userService.saveUser(user);
-
-        return JsonResult.success(null);
+        boolean result = userService.checkUserName(user.getUserName());
+        if (!result) {
+            userService.saveUser(user);
+            return JsonResult.success(null);
+        } else {
+            return JsonResult.fail(DATA_ERROR);
+        }
     }
 
     private JsonResult addValidate(User user) {
         Map<String, String> errorMap = new HashMap<>();
-
-        long id = user.getId();
-        if (id < 1) {
-            errorMap.put("id", "id 必填");
-        }
 
         String userName = user.getUserName();
         if (StringUtils.isEmpty(userName)) {
@@ -104,6 +108,7 @@ public class UserController {
 
     /**
      * 根据ID删除用户
+     *
      * @param id
      * @return
      */
@@ -115,6 +120,7 @@ public class UserController {
 
     /**
      * 获取用户列表
+     *
      * @return list
      */
     @RequestMapping(value = "/api/user", method = RequestMethod.GET)
@@ -126,6 +132,7 @@ public class UserController {
 
     /**
      * 更新用户
+     *
      * @param user
      * @return
      */

@@ -7,31 +7,33 @@
 		<result column="password" property="password" />
 		<result column="mobile" property="mobile" />
 		<result column="token" property="token" />
-		<result column="description" property="description" /> 
+		<result column="c_time" property="createTime" />
+		<result column="e_time" property="editTime" />
+		<result column="description" property="description" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, username
+		id, username,mobile,c_time,e_time
 	</sql>
 
 
 	<select id="getUserList" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
-		*
+		<include refid="Base_Column_List" />
 		from t_user
 	</select>
 	<select id="findById" resultMap="BaseResultMap" parameterType="long">
 		select
-		*
+		<include refid="Base_Column_List" />
 		from t_user 
 		where id = #{id}
 	</select>
 	
 	<insert id="saveUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
 		insert into
-			t_user(id,username,password,mobile)
+			t_user(id,username,password,mobile,c_time)
 		values
-			(#{id},#{userName},#{password},#{mobile})
+			(#{id},#{userName},#{password},#{mobile},#{createTime})
 	</insert>
 	
 		<update id="updateUser" parameterType="User">
@@ -80,5 +82,13 @@
 		id,username
 		from t_user
 		where username = #{userName} and password = #{password}
+	</select>
+
+
+	<select id="checkUserName" parameterType="java.lang.String" resultType="INTEGER" >
+		select
+		count(*)
+		from t_user
+		where username = #{userName}
 	</select>
 </mapper>

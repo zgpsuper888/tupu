@@ -1,5 +1,6 @@
 package com.tupu.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -48,13 +49,14 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         String passwordDigest = SecurityUtils.md5(user.getPassword());
         user.setPassword(passwordDigest);
-
+        user.setCreateTime(new Date());
         user.setId(IdGen.getUniqueId());
         userDao.saveUser(user);
     }
 
     @Override
     public void updateUser(User user) {
+        user.setEditTime(new Date());
         userDao.updateUser(user);
     }
 
@@ -66,7 +68,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean checkToken(long id, String token) {
         int num = userDao.findByToken(id, token);
-
         return num == 1;
+    }
+
+    @Override
+    public boolean checkUserName(String userName) {
+        int userNum = userDao.checkUserName(userName);
+
+        if(userNum > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
