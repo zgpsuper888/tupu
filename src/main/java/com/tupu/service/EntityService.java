@@ -30,7 +30,7 @@ public interface EntityService {
      * @param entity
      * @return
      */
-    Long editEntity(Entity entity);
+    Long updateEntity(Entity entity);
 
     /**
      * 根据实体id获取实体

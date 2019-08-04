@@ -81,6 +81,15 @@ public class ConfTemplateController {
         return JsonResult.fail(errorMap);
     }
 
+    /**
+     * 通过模版id 删除模版
+     * @param id
+     */
+    @RequestMapping(value = "/api/conf/{id}", method = RequestMethod.DELETE)
+    public JsonResult delConfTemplate(@PathVariable("id") long id) {
+        confTemplateService.deleteConfTemplate(id);
+        return JsonResult.success(null);
+    }
 
     /**
      *
@@ -109,4 +118,7 @@ public class ConfTemplateController {
         }
         return JsonResult.fail(errorMap);
     }
+
+
+
 }

@@ -92,4 +92,37 @@ public class EntityController {
         }
         return JsonResult.fail(errorMap);
     }
+
+    @RequestMapping(value = "/api/conf/entity/{id}", method = RequestMethod.DELETE)
+    public JsonResult delEntity(@PathVariable("id") long id) {
+        entityService.deleteEntity(id);
+        return JsonResult.success(null);
+    }
+
+    /**
+     * 更新实体
+     * @param entity
+     */
+    @RequestMapping(value = "/api/conf/entity", method = RequestMethod.PUT)
+    public JsonResult modifyEntity(@RequestBody Entity entity) {
+        JsonResult validateResult = idValidate(entity);
+        if (!validateResult.isSuccess()) {
+            return validateResult;
+        }
+        entityService.updateEntity(entity);
+        return JsonResult.success(null);
+    }
+
+    private JsonResult idValidate(Entity entity) {
+        Map<String, String> errorMap = new HashMap<>();
+
+        long templateId = entity.getTemplateId();
+        if (StringUtils.isEmpty(templateId)) {
+            errorMap.put("templateId", "模版Id必填");
+        }
+        if (CollectionUtils.isEmpty(errorMap)) {
+            return JsonResult.success(null);
+        }
+        return JsonResult.fail(errorMap);
+    }
 }
