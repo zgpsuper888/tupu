@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5a88df16-5153-4a51-bfcf-0e11d22446da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/result/JsonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/result/JsonResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tupu/service/EntityServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tupu/service/EntityServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tupu/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tupu/service/UserServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tupu.iws" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.iws" afterDir="false" />
     </list>
@@ -193,7 +188,7 @@
       <workItem from="1564830844128" duration="18000" />
       <workItem from="1564830877201" duration="230000" />
       <workItem from="1564879485069" duration="102000" />
-      <workItem from="1564882454429" duration="23228000" />
+      <workItem from="1564882454429" duration="28912000" />
     </task>
     <servers />
   </component>

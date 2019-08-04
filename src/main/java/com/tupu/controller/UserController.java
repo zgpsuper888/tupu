@@ -59,8 +59,11 @@ public class UserController {
      */
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
     public JsonResult findOneUser(@PathVariable("id") long id) {
-
+        System.out.println("-------------");
+        System.out.println(id);
         User user = userService.findUserById(id);
+        System.out.println(user.getId());
+
         return JsonResult.success(user);
     }
 
@@ -136,10 +139,9 @@ public class UserController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/api/user/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/api/user", method = RequestMethod.PUT)
     public JsonResult modifyUser(@RequestBody User user) {
         userService.updateUser(user);
-
         return JsonResult.success(null);
     }
 }
