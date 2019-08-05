@@ -104,18 +104,10 @@ public class UserController {
         return JsonResult.fail(errorMap);
     }
 
-    /**
-     * 根据ID删除用户
-     *
-     * @param ids
-     * @return
-     */
-//    private String ids;
+    /** 批量删除用户 */
     @RequestMapping(value = "/api/user", method = RequestMethod.DELETE)
     public JsonResult delUser(@RequestParam String ids) {
-////        String userIds = user.getIds();
         System.out.println(ids);
-////        userService.deleteUserList();
         return JsonResult.success(null);
     }
 
