@@ -84,7 +84,7 @@
         select count(*) as count from
 			t_attribute
 		where
-			template_id = #{templateId} and en_attribute_name = #{enAttributeName}
+			template_id = #{templateId} and en_attribute_name = #{enAttributeName} and entity_id = #{entityId}
 	</select>
 
 </mapper>

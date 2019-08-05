@@ -13,12 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.tupu.common.ErrorCodeEnum;
 import com.tupu.domain.User;
@@ -59,10 +54,9 @@ public class UserController {
      */
     @RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
     public JsonResult findOneUser(@PathVariable("id") long id) {
-        System.out.println("-------------");
-        System.out.println(id);
+
         User userInfo = userService.findUserById(id);
-        if (userInfo ==null) {
+        if (userInfo == null) {
             return JsonResult.success(null);
         }
         return JsonResult.success(userInfo);
@@ -113,12 +107,15 @@ public class UserController {
     /**
      * 根据ID删除用户
      *
-     * @param id
+     * @param ids
      * @return
      */
-    @RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
-    public JsonResult delUser(@PathVariable("id") long id) {
-        userService.deleteUser(id);
+//    private String ids;
+    @RequestMapping(value = "/api/user", method = RequestMethod.DELETE)
+    public JsonResult delUser(@RequestParam String ids) {
+////        String userIds = user.getIds();
+        System.out.println(ids);
+////        userService.deleteUserList();
         return JsonResult.success(null);
     }
 

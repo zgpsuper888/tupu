@@ -38,4 +38,6 @@ public interface UserDao {
     int findByToken(long id, String token);
 
     int checkUserName(String userName);
+
+    Long deleteUsers(String ids);
 }
