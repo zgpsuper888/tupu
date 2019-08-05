@@ -16,20 +16,10 @@ public class User {
     private String token;
     private Long createUid;
     private Long editUid;
-
     private Date createTime;
     private Date editTime;
     private String description;
-    private String ids;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    public String getIds() {
-        return ids;
-    }
-
-    public void setIds(String ids) {
-        this.ids = ids;
-    }
 
     public long getId() {
         return id;

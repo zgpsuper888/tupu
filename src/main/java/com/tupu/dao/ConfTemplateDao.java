@@ -18,9 +18,9 @@ public interface ConfTemplateDao {
 
     ConfTemplate getById(long id);
 
-    Long saveConfTemplate(ConfTemplate configtemplate);
+    Long saveConfTemplate(ConfTemplate configTemplate);
 
-    Long updateConfTemplate(ConfTemplate configtemplate);
+    Long updateConfTemplate(ConfTemplate configTemplate);
 
     Long deleteConfTemplate(long id);
 

@@ -10,9 +10,9 @@ public class DictRelation {
     private String tags;
     private int level;
     private long createUid;
-    private String createTime;
+    private Date createTime;
     private long editUid;
-    private String editTime;
+    private Date editTime;
     private String description;
 
     public long getId() {
@@ -72,7 +72,6 @@ public class DictRelation {
     }
 
 
-
     public long getEditUid() {
         return editUid;
     }
@@ -81,19 +80,19 @@ public class DictRelation {
         this.editUid = editUid;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public String getEditTime() {
+    public Date getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(String editTime) {
+    public void setEditTime(Date editTime) {
         this.editTime = editTime;
     }
 

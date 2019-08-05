@@ -102,8 +102,11 @@ public class ConfTemplateController {
         if (!validateResult.isSuccess()) {
             return validateResult;
         }
+        System.out.println(confTemplate.getId());
         confTemplateService.updateConfTemplate(confTemplate);
-        return JsonResult.success(null);
+        ConfTemplate confTemplateInfo = confTemplateService.findConfTemplateByid(confTemplate.getId());
+        System.out.println(confTemplate.getId());
+        return JsonResult.success(confTemplateInfo);
     }
 
     private JsonResult idValidate(ConfTemplate confTemplate) {

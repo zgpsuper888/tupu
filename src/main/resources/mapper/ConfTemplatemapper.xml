@@ -9,6 +9,7 @@
         <result column="e_time" property="editTime" />
         <result column="deploy_path" property="deployPath" />
         <result column="c_uid" property="createUid" />
+        <result column="e_uid" property="editUid" />
         <result column="status" property="confStatus" />
         <result column="description" property="description" />
     </resultMap>

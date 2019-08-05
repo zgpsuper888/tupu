@@ -17,7 +17,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-		id, en_attribute_name,cn_attribute_name,attribute_type,en_attribute_value,cn_attribute_value,c_time,e_time,description
+		id, en_attribute_name,cn_attribute_name,tags,attribute_type,en_attribute_value,cn_attribute_value,c_time,e_time,description
 	</sql>
     <select id="getDictAttributeList" resultMap="BaseResultMap" parameterType="java.lang.String">
         select
@@ -83,7 +83,10 @@
         select count(*) as count from
 			t_dict_attribute
 		where
-			 en_attribute_name = #{enAttributeName} and id !=#{id};
-	</select>
+			 en_attribute_name = #{enAttributeName}
+        <if test="id!=null">
+            and id !=#{id};
+        </if>
 
+	</select>
 </mapper>

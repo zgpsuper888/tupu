@@ -33,7 +33,7 @@ public class DictRelationServiceImpl implements DictRelationService {
     @Override
     public Long saveDictRelation(DictRelation dictRelation) {
         dictRelation.setId(IdGen.getUniqueId());
-        dictRelation.setCreateTime(GlobalVariable.nowDate());
+        dictRelation.setCreateTime(new Date());
         return dictRelationDao.saveDictRelation(dictRelation);
     }
 
@@ -54,7 +54,7 @@ public class DictRelationServiceImpl implements DictRelationService {
      */
     @Override
     public Long editDictRelation(DictRelation dictRelation) {
-        dictRelation.setEditTime(GlobalVariable.nowDate());
+        dictRelation.setEditTime(new Date());
         return dictRelationDao.updateDictRelation(dictRelation);
     }
 

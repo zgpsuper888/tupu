@@ -32,6 +32,7 @@ public class ConfigController {
      */
     @RequestMapping(value = "/api/sys/config", method = RequestMethod.PUT)
     public JsonResult modifyUser(@RequestBody Config config) {
+//        System.out.println(config);
         configService.updateConfig(config);
         return JsonResult.success(null);
     }

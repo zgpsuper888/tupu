@@ -19,8 +19,9 @@ import com.tupu.common.ErrorCodeEnum;
 import com.tupu.domain.User;
 import com.tupu.result.JsonResult;
 import com.tupu.service.UserService;
+import sun.tools.jconsole.inspector.XObject;
 
-import static com.tupu.common.ErrorCodeEnum.DATA_ERROR;
+import static com.tupu.common.ErrorCodeEnum.*;
 
 @RestController
 @ResponseBody
@@ -43,7 +44,8 @@ public class UserController {
             return JsonResult.fail(ErrorCodeEnum.LOGIN_ERROR);
         }
 
-        return JsonResult.success(JsonUtils.object2JsonIgnoreNull(loginUser));
+//        return JsonResult.success(JsonUtils.object2JsonIgnoreNull(loginUser));
+        return JsonResult.success(loginUser);
     }
 
     /**
@@ -107,15 +109,23 @@ public class UserController {
     /**
      * 根据ID删除用户
      *
-     * @param ids
+     * @param userIds
      * @return
      */
-//    private String ids;
     @RequestMapping(value = "/api/user", method = RequestMethod.DELETE)
-    public JsonResult delUser(@RequestParam String ids) {
-////        String userIds = user.getIds();
-        System.out.println(ids);
-////        userService.deleteUserList();
+//    public JsonResult delUser(@RequestParam String ids) {
+    public JsonResult delUser(@RequestBody Long[] userIds) {
+
+        System.out.println(userIds);
+//        if (userIds.isEmpty()) {
+//            return JsonResult.fail(PARAM_ERROR);
+//        }
+//        long deluserNum = userService.deleteUserList(userIds);
+//        if (deluserNum > 0) {
+//            return JsonResult.success(null);
+//        } else {
+//            return JsonResult.fail(DELETE_FAIL);
+//        }
         return JsonResult.success(null);
     }
 

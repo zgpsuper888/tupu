@@ -24,6 +24,7 @@ public class Relation {
     private Date editTime;
     private String description;
 
+
     public long getId() {
         return id;
     }

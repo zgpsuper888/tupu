@@ -2,21 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a88df16-5153-4a51-bfcf-0e11d22446da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/JsonTemplateDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/JsonTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/JsonTemplateMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/common/DateFormatConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/JsonTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/JsonTemplateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/JsonTemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/ConfTemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/ConfTemplateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/ConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/ConfigController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictAttributeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictAttributeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictRelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictRelationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfTemplateDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfTemplateDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/ConfTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/ConfTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/Relation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/Relation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AttributeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/dict/DictRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/dict/DictRelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/DictRelationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/DictRelationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ConfTemplatemapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ConfTemplatemapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/DictAttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/DictAttributeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RelationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RelationMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tupu.iws" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.iws" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +45,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="Kotlin File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -208,7 +209,7 @@
       <workItem from="1564830844128" duration="18000" />
       <workItem from="1564830877201" duration="230000" />
       <workItem from="1564879485069" duration="102000" />
-      <workItem from="1564882454429" duration="56588000" />
+      <workItem from="1564882454429" duration="66382000" />
     </task>
     <servers />
   </component>

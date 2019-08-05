@@ -23,6 +23,8 @@ public class ConfTemplate {
     private String createUid;
     private Date editTime;
 
+
+
     public long getId() {
         return id;
     }
