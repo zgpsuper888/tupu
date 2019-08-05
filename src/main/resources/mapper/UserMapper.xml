@@ -40,7 +40,7 @@
         where id = #{id}
     </select>
 
-    <insert id="saveUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+    <insert id="saveUser" parameterType="User">
 		insert into
 			t_user(id,username,password,mobile,email,c_time)
 		values
