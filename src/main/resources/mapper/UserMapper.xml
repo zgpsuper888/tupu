@@ -31,7 +31,7 @@
     <select id="getUserList" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from t_user
+        from t_user where username != 'admin'
     </select>
     <select id="findById" resultMap="userList" parameterType="long">
         select

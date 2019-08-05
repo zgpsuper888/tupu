@@ -2,24 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a88df16-5153-4a51-bfcf-0e11d22446da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/ConfigController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/AttributeDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/Attribute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/AttributeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/ConfigService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/AttributeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/ConfigServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/AttributeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/RelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/RelationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictAttributeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictRelationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/dict/DictAttributeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/dict/DictRelationDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/dict/DictAttribute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/dict/DictRelation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/DictAttributeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/DictRelationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/DictAttributeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/DictRelationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/DictAttributeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/DictRelationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/common/GlobalVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/common/GlobalVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfigDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/ConfigDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ConfigMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ConfigMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EntityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EntityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/RelationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/RelationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RelationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RelationMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tupu.iws" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.iws" afterDir="false" />
@@ -77,12 +76,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.tupu.service.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tupu.controller.dict" />
+      <recent name="com.tupu.service.impl" />
+      <recent name="com.tupu.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -204,7 +212,7 @@
       <workItem from="1564830844128" duration="18000" />
       <workItem from="1564830877201" duration="230000" />
       <workItem from="1564879485069" duration="102000" />
-      <workItem from="1564882454429" duration="36421000" />
+      <workItem from="1564882454429" duration="46899000" />
     </task>
     <servers />
   </component>

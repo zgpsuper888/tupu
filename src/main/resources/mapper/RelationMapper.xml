@@ -54,9 +54,6 @@
         <if test="cnRelationName!=null">
             cn_relation_name = #{cnRelationName},
         </if>
-        <if test="tags!=null">
-            tags = #{tags},
-        </if>
         <if test="parentId!=null">
             `parent_id` = #{parentId},
         </if>

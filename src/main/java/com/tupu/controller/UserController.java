@@ -61,9 +61,11 @@ public class UserController {
     public JsonResult findOneUser(@PathVariable("id") long id) {
         System.out.println("-------------");
         System.out.println(id);
-        User user = userService.findUserById(id);
-        System.out.println(user.getId());
-        return JsonResult.success(user);
+        User userInfo = userService.findUserById(id);
+        if (userInfo ==null) {
+            return JsonResult.success(null);
+        }
+        return JsonResult.success(userInfo);
     }
 
     /**

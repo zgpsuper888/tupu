@@ -1,60 +1,54 @@
 package com.tupu.service;
 
 
-import com.tupu.domain.Relation;
+import com.tupu.domain.dict.DictRelation;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface RelationService {
+public interface DictRelationService {
     /**
      * 获取所有关系字典列表
      * @return list
      */
-    List<Relation> getRelationList();
+    List<DictRelation> getDictRelationList();
 
     /**
      * 新增关系字典
      * @param relation
      * @return
      */
-    Long saveRelation(Relation relation);
+    Long saveDictRelation(DictRelation relation);
 
     /**
      * 删除关系字典
      * @param id
      * @return
      */
-    Long deleteRelation(long id);
+    Long deleteDictRelation(long id);
 
     /**
      * 编辑关系字典
      * @param relation
      * @return
      */
-    Long editRelation(Relation relation);
+    Long editDictRelation(DictRelation relation);
 
     /**
      * 根据实体id获取实体
      * @param id
      * @return
      */
-    Relation getRelationById(long id);
+    DictRelation getDictRelationById(long id);
 
-    /**
-     * 根据模版id查询关系字典列表
-     * @param templateId
-     * @return list
-     */
-    List<Relation> getRelationByTemplateId(long templateId);
 
     /**
      * 检查关系字典是否重复
-     * @param relation
+     * @param dictRelationName
      * @return boolean
      */
-    boolean checkRelation(Relation relation);
+    boolean checkDictRelation(String dictRelationName ,long id);
 }
 
 

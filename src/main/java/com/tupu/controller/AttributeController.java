@@ -35,6 +35,7 @@ public class AttributeController {
 
     /**
      * 根据属性ID查询
+     *
      * @param id 属性id
      * @return attribute
      */
@@ -46,8 +47,9 @@ public class AttributeController {
 
     /**
      * 创建属性
+     *
      * @param attribute 属性信息
-     * @return  boolean
+     * @return boolean
      */
     @RequestMapping(value = "/api/conf/attribute", method = RequestMethod.POST)
     public JsonResult createAttribute(@RequestBody Attribute attribute) {
@@ -122,7 +124,7 @@ public class AttributeController {
     private JsonResult idValidate(Attribute attribute) {
         Map<String, String> errorMap = new HashMap<>();
         long attributeId = attribute.getId();
-        if (StringUtils.isEmpty(attributeId)) {
+        if (attributeId == 0) {
             errorMap.put("attributeId", "Id必填");
         }
         if (CollectionUtils.isEmpty(errorMap)) {

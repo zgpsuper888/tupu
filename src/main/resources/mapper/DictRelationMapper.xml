@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tupu.dao.dict.DictRelationDao">
+    <resultMap id="BaseResultMap" type="com.tupu.domain.dict.DictRelation">
+        <result column="id" property="id"/>
+        <result column="en_relation_name" property="enRelationName"/>
+        <result column="cn_relation_name" property="cnRelationName"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="tags" property="tags"/>
+        <result column="level" property="level"/>
+        <result column="c_time" property="createTime"/>
+        <result column="e_time" property="editTime"/>
+        <result column="c_uid" property="createUid"/>
+        <result column="e_uid" property="editUid"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, en_relation_name,cn_relation_name,parent_id,tags,c_time,e_time,description
+	</sql>
+    <select id="getDictRelationList" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_dict_relation
+    </select>
+    <select id="getDictRelationById" resultMap="BaseResultMap" parameterType="long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_dict_relation
+        where id=#{id}
+    </select>
+
+
+    <insert id="saveDictRelation" parameterType="Relation" useGeneratedKeys="true" keyProperty="id">
+		insert into t_dict_relation(
+		    id,en_relation_name,cn_relation_name,parent_id,tags,`level`,c_time,description)
+		values
+			(#{id},#{enRelationName},#{cnRelationName},#{parentId},#{tags},#{level}, #{createTime},#{description})
+	</insert>
+
+    <update id="updateDictRelation" parameterType="Relation">
+        update
+        t_dict_relation
+        set
+        <if test="enRelationName!=null">
+            en_relation_name = #{enRelationName},
+        </if>
+        <if test="cnRelationName!=null">
+            cn_relation_name = #{cnRelationName},
+        </if>
+
+        <if test="parentId!=null">
+            `parent_id` = #{parentId},
+        </if>
+        <if test="tags!=null">
+            tags = #{tags},
+        </if>
+        <if test="level!=null">
+            `level` = #{level},
+        </if>
+        <if test="description!=null">
+            `description` = #{description},
+        </if>
+        <if test="editTime!=null">
+            `e_time` = #{editTime}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteDictRelation" parameterType="java.lang.Long">
+		delete from
+			t_dict_relation
+		where
+			id = #{id}
+	</delete>
+
+    <select id="checkDictRelationName" parameterType="Relation" resultType="INTEGER">
+        select count(*) as count from
+			t_dict_relation
+		where
+			 en_relation_name = #{enRelationName} and id !=#{id};
+	</select>
+
+</mapper>

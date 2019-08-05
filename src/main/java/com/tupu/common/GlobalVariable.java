@@ -1,5 +1,7 @@
 package com.tupu.common;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,5 +37,11 @@ public class GlobalVariable {
         }
 
         return variableMap.get(configKey);
+    }
+
+    public static String nowDate() {
+        //设置日期格式
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return df.format(new Date());
     }
 }
