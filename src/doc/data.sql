@@ -1,8 +1,8 @@
 create table t_json_template
 (
    id                   bigint not null,
-   template_id          varchar(32) not null,
    template_name        varchar(32),
+   conf_template_id     varchar(32) not null,
    entitie_id           varchar(32),
    template_version     varchar(32),
    template_content     varchar(1024),

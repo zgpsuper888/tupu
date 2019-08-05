@@ -42,9 +42,9 @@
 
     <insert id="saveUser" parameterType="User">
 		insert into
-			t_user(id,username,password,mobile,c_time)
+			t_user(id,username,password,mobile,email,c_time)
 		values
-			(#{id},#{userName},#{password},#{mobile},#{createTime})
+			(#{id},#{userName},#{password},#{mobile},#{email},#{createTime})
 	</insert>
 
     <update id="updateUser" parameterType="User">
@@ -54,7 +54,7 @@
         <if test="userName!=null">
             username = #{userName},
         </if>
-        <if test="password!=null">
+        <if test="password!=null" >
             password = #{password},
         </if>
         <if test="mobile!=null">
@@ -65,9 +65,9 @@
             email = #{email},
         </if>
 
-		<if test="description!=null">
-			description = #{description},
-		</if>
+        <if test="description!=null">
+            description = #{description},
+        </if>
         <if test="editTime!=null">
             e_time = #{editTime}
         </if>
@@ -80,6 +80,13 @@
 			t_user
 		where
 			id = #{id}
+	</delete>
+
+    <delete id="deleteUsers" parameterType="java.lang.String">
+		delete from
+			t_user
+		where
+			id in( #{ids} )
 	</delete>
 
     <select id="findByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">

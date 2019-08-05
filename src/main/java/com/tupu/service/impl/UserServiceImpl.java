@@ -56,6 +56,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
+        String password = user.getPassword();
+        if (password.isEmpty()) {
+            user.setPassword(null);
+        }else{
+            String passwordDigest = SecurityUtils.md5(password);
+        }
         user.setEditTime(new Date());
         userDao.updateUser(user);
     }
@@ -69,6 +75,11 @@ public class UserServiceImpl implements UserService {
     public boolean checkToken(long id, String token) {
         int num = userDao.findByToken(id, token);
         return num == 1;
+    }
+
+    @Override
+    public  Long deleteUserList(String ids){
+        return userDao.deleteUsers(ids);
     }
 
     @Override

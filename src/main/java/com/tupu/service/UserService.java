@@ -70,4 +70,6 @@ public interface UserService {
 
 
     boolean checkUserName(String userName);
+
+    Long deleteUserList(String ids);
 }

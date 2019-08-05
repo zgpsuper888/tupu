@@ -1,5 +1,7 @@
 package com.tupu.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -18,7 +20,16 @@ public class User {
     private Date createTime;
     private Date editTime;
     private String description;
+    private String ids;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public String getIds() {
+        return ids;
+    }
+
+    public void setIds(String ids) {
+        this.ids = ids;
+    }
 
     public long getId() {
         return id;

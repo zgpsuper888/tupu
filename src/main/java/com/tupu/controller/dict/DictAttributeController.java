@@ -8,6 +8,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,7 @@ public class DictAttributeController {
     @RequestMapping(value = "/api/dict/attribute/{id}", method = RequestMethod.GET)
     public JsonResult getDictAttribute(@PathVariable("id") long id) {
         DictAttribute attribute = dictAttributeService.getDictAttributeById(id);
+
         if (attribute==null) {
             return  JsonResult.success(null);
         }

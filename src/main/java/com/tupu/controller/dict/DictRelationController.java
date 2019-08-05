@@ -29,7 +29,7 @@ public class DictRelationController {
      */
     @RequestMapping(value = "/api/dict/relation/{id}", method = RequestMethod.GET)
     public JsonResult getDictRelation(@PathVariable("id") long id) {
-        System.out.println(new Date());
+
         DictRelation relation = dictRelationService.getDictRelationById(id);
         if (relation==null) {
             return  JsonResult.success(null);

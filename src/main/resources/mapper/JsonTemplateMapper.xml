@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tupu.dao.JsonTemplateDao">
+    <resultMap id="BaseResultMap" type="com.tupu.domain.JsonTemplate">
+        <result column="id" property="id"/>
+        <result column="template_name" property="enAttributeName"/>
+        <result column="conf_template_id" property="cnAttributeName"/>
+        <result column="entitie_id" property="attributeType"/>
+        <result column="template_version" property="enAttributeValue"/>
+        <result column="template_content" property="cnAttributeValue"/>
+        <result column="c_time" property="createTime"/>
+        <result column="e_time" property="editTime"/>
+        <result column="c_uid" property="createUid"/>
+        <result column="e_uid" property="editUid"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		j.id,j.template_name,j.template_content,j.c_time,j.e_time,j.description,e.en_entitie_name,e.cn_entitie_name,c.template_name confTemplateName
+	</sql>
+    <select id="getDictAttributeList" resultType="map" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_json_template j left join t_template t on t.template_id = j.template_id
+        left join t_entity e on j.entitie_id = e.id
+    </select>
+<!--    <select id="getDictAttributeById" resultMap="BaseResultMap" parameterType="long">-->
+<!--        select-->
+<!--        id,-->
+<!--        from t_dict_attribute-->
+<!--        where id=#{id}-->
+<!--    </select>-->
+
+
+    <insert id="saveJsonTemplate" parameterType="JsonTemplate" useGeneratedKeys="true" keyProperty="id">
+		insert into t_json_template(
+		    id,template_name,conf_template_id,entitie_id,template_version,`template_content`,c_uid,c_time,description)
+		values
+			(#{id},#{templateName},#{confTemplateId},#{entitieId},#{templateVersion},#{templateContent},#{createUid}, #{createTime},#{description})
+	</insert>
+
+    <update id="updateJsonTemplate" parameterType="Attribute">
+        update
+        t_json_template
+        set
+        <if test="templateName!=null">
+            template_name = #{templateName},
+        </if>
+        <if test="confTemplateId!=null">
+            conf_template_id = #{confTemplateId},
+        </if>
+
+        <if test="entitieId!=null">
+            `entitie_id` = #{entitieId},
+        </if>
+        <if test="templateVersion!=null">
+            template_version = #{templateVersion},
+        </if>
+        <if test="templateContent!=null">
+            `template_content` = #{templateContent},
+        </if>
+
+        <if test="editUid!=null">
+            `e_uid` = #{editUid},
+        </if>
+
+        <if test="description!=null">
+            `description` = #{description},
+        </if>
+        <if test="editTime!=null">
+            `e_time` = #{editTime}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteJsonTemplate" parameterType="java.lang.Long">
+		delete from
+			t_json_template
+		where
+			id = #{id}
+	</delete>
+
+    <select id="checkJsonTemplate" parameterType="Attribute" resultType="INTEGER">
+        select count(*) as count from
+			t_json_template
+		where
+			 en_attribute_name = #{enAttributeName} and id !=#{id};
+	</select>
+
+</mapper>

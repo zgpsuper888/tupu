@@ -86,10 +86,7 @@ public class AttributeController {
         if (StringUtils.isEmpty(enAttributeName)) {
             errorMap.put("enAttributeName", "属性英文名必填");
         }
-        String cnAttributeName = attribute.getCnAttributeName();
-        if (StringUtils.isEmpty(cnAttributeName)) {
-            errorMap.put("cnAttributeName", "属性中文名必填");
-        }
+
         if (CollectionUtils.isEmpty(errorMap)) {
             return JsonResult.success(null);
         }

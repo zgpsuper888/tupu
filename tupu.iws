@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a88df16-5153-4a51-bfcf-0e11d22446da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictAttributeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictRelationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/dict/DictAttributeDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/dict/DictRelationDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/dict/DictAttribute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/dict/DictRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/DictAttributeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/DictRelationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/DictAttributeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/DictRelationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/DictAttributeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/DictRelationMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/common/GlobalVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/common/GlobalVariable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/JsonTemplateDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/JsonTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/JsonTemplateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/AttributeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/RelationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/RelationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RelationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RelationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictAttributeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictAttributeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictRelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/controller/dict/DictRelationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tupu/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AttributeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tupu.iws" beforeDir="false" afterPath="$PROJECT_DIR$/tupu.iws" afterDir="false" />
@@ -212,7 +208,7 @@
       <workItem from="1564830844128" duration="18000" />
       <workItem from="1564830877201" duration="230000" />
       <workItem from="1564879485069" duration="102000" />
-      <workItem from="1564882454429" duration="46899000" />
+      <workItem from="1564882454429" duration="56588000" />
     </task>
     <servers />
   </component>
